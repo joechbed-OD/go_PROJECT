@@ -43,29 +43,29 @@ func main() {
 		ratingStr, _ := reader.ReadString('\n')
 		rating, _ := strconv.Atoi(strings.TrimSpace(ratingStr))
 
-		movies = append(movies, struct{
-			Title string; 
-			Year int; 
-			Rating int}{
-				title,
-				year,
-				rating,
-			})
+		movies = append(movies, struct {
+			Title  string
+			Year   int
+			Rating int
+		}{
+			title,
+			year,
+			rating,
+		})
 	}
 	fmt.Println("\nYOUR MOVIE COLLECTION:")
 	for i, movie := range movies {
 		fmt.Printf("%s (%d) - Rating: %d/10\n", movie.Title, movie.Year, movie.Rating)
 		if movie.Rating >= 8 {
 			fmt.Println("⭐ Highly Recommended!")
-		}else if movie.Rating >= 5 {
+		} else if movie.Rating >= 5 {
 			fmt.Println("👍 Worth Watching.")
-		}else {
+		} else {
 			fmt.Println("👎 Maybe Skip This One.")
 		}
 		fmt.Printf("TOTAL MOVIES: %d", i)
 		fmt.Println("AVERAGE RATINGS: ")
 
 	}
-
 
 }
