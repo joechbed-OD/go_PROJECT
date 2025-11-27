@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -15,6 +16,17 @@ func main() {
 	userName, _ := reader.ReadString('\n')
 	userName = strings.TrimSpace(userName)
 
+	var greetings string
+	hour := time.Now().Hour()
+	if hour < 12 {
+		greetings = "Good Morning"
+	} else if hour < 17 {
+		greetings = "Good Afternoon"
+	} else if hour >= 17 {
+		greetings = "Good Evening"
+	}
+
+	fmt.Printf("%s, %s\n", greetings, userName)
 	fmt.Println("HOW MANY MOVIES DO YOU WANT TO ADD TO YOUR COLLECTION: ")
 	movieCount, _ := reader.ReadString('\n')
 	movieCount = strings.TrimSpace(movieCount)
